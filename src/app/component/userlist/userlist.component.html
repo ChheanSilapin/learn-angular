@@ -1,6 +1,6 @@
 <div class="container">
-    <h2>👥 User Directory</h2>
-
+    <h2>User Directory</h2>
+    <app-search></app-search>
     <!-- Loading State -->
     <div *ngIf="loading" class="loading">
         <div class="spinner"></div>
@@ -34,3 +34,4 @@
         </tbody>
     </table>
 </div>
+<a routerLink="/">Go Home</a>

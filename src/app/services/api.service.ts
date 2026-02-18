@@ -35,4 +35,8 @@ export class ApiService {
   deleteUser(id: number) {
     return this.http.delete<User>(`${this.baseUrl}/users/${id}`);
   }
+
+  searchUsers(term: string) {
+    return this.http.get<User[]>(`${this.baseUrl}/users?name_like=${term}`);
+  }
 }

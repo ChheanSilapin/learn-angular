@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div *ngIf="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading user details...</p>
+    </div>
+
+    <div *ngIf="error" class="error">
+        {{ error }}
+        <br>
+        <a routerLink="/users" class="back-btn">Back to List</a>
+    </div>
+
+    <div *ngIf="user && !loading" class="user-card">
+        <h2>👤 {{ user.name }}</h2>
+        <div class="details">
+            <p><strong>ID:</strong> {{ user.id }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <!-- You could add more fields here if the API returns them -->
+        </div>
+
+        <div class="actions">
+            <a routerLink="/users" class="back-btn">⬅️ Back to Users</a>
+        </div>
+    </div>
+
+</div>

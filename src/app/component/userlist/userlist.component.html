@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>👥 User Directory</h2>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading users...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="error">
+        {{ error }}
+    </div>
+
+    <!-- User Table -->
+    <table *ngIf="!loading && !error" class="user-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a [routerLink]="['/users', user.id]" class="view-btn">View Details</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

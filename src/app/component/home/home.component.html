@@ -1,0 +1,5 @@
+<div style="display: flex; gap: 20px; flex-wrap: wrap; padding: 20px;">
+    <app-product-card-component *ngFor="let product of products" [name]="product.name" [price]="product.price"
+        [image]="product.image">
+    </app-product-card-component>
+</div>

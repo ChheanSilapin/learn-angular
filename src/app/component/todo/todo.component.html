@@ -1,0 +1,31 @@
+<!-- ===== Todo List Exercise ===== -->
+<!-- Concepts used: interpolation {{ }}, (click) event binding,
+     [(ngModel)] two-way binding, *ngFor, *ngIf -->
+
+<div class="todo-container">
+    <h2> My Todo List</h2>
+
+    <!--  Input field + Add button -->
+    <div class="todo-input">
+        <input type="text" [(ngModel)]="newTodo" placeholder="What needs to be done?" (keyup.enter)="addTodo()" />
+        <button (click)="addTodo()">Add</button>
+    </div>
+
+    <!-- Show list with *ngFor -->
+    <ul class="todo-list" *ngIf="todos.length > 0">
+        <li *ngFor="let todo of todos.slice().reverse(); let i = index">
+            <span>{{ i + 1 }}. {{ todo }}</span>
+            <button class="delete-btn" (click)="deleteTodo(todos.length - 1 - i)">✕</button>
+        </li>
+    </ul>
+
+    <!-- Show "No todos yet" with *ngIf -->
+    <p class="empty-message" *ngIf="todos.length === 0">
+        No todos yet. Add one above!
+    </p>
+
+    <!-- Show count using interpolation -->
+    <p class="todo-count" *ngIf="todos.length > 0">
+        Total: {{ todos.length }} todo{{ todos.length > 1 ? 's' : '' }}
+    </p>
+</div>
